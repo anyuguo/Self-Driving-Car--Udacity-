@@ -123,7 +123,7 @@ Lane area highlighted:
 #### Example plot
 Screenshot:
 
-![](https://github.com/anyuguo/Self-Driving-Car--Udacity-/blob/master/Term1/P4-Advanced-Lane-Finding/readme_images/12.png)
+![](https://github.com/anyuguo/Self-Driving-Car--Udacity-/blob/master/Term1/P4-Advanced-Lane-Finding/readme_images/12.jpg)
 
 [Video output](./project_output.mp4)
 
