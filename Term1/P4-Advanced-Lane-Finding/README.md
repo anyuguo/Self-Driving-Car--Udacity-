@@ -34,7 +34,7 @@ This was done in Step 1 of the ipynb.
 * Calibrate the camera and obtain distortion coefficients using `cv2.calibrateCamera`.
 
 #### Example of a distortion corrected calibration image.
-![](readme_images/distortion-corrected-calib-image.png)
+![](readme_images/camera calibration.png)
 
 
 ## Image Pipeline
