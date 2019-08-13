@@ -22,9 +22,9 @@ The shape of a traffic sign image is (32, 32, 3)
 The number of classes in the data set is 43
 
 Here is an exploratory visualization of the train data set. </br></br>
-<img src="./readme_resources/sample.png"></br></br>
+<img src="https://github.com/anyuguo/Self-Driving-Car--Udacity-/blob/master/Term1/P2-Traffic-Sign-Classifier/readme_sources/sample.png"></br></br>
 This bar chart is showing how many images there are in the traninig set for each class. </br></br>
-<img src="./readme_resources/hist.png"></br></br>
+<img src="https://github.com/anyuguo/Self-Driving-Car--Udacity-/blob/master/Term1/P2-Traffic-Sign-Classifier/readme_sources/hist.png"></br></br>
 
 
 ### Data preprocessing
@@ -64,7 +64,7 @@ My final model results are:
 
 Here are seveb German traffic signs that I found on the web, and I make them resized as 32 * 32:
 
-<img src="./readme_resources/test.png"></br></br>
+<img src="https://github.com/anyuguo/Self-Driving-Car--Udacity-/blob/master/Term1/P2-Traffic-Sign-Classifier/readme_sources/test.png"></br></br>
 
 Here are the results of the prediction:
 
@@ -82,6 +82,6 @@ The model was able to correctly guess 6 of the 7 traffic signs, which gives an a
 
 
 Here is the specific predition result of my model. </br></br>
-<img src="./readme_resources/result.png"></br></br>
+<img src="https://github.com/anyuguo/Self-Driving-Car--Udacity-/blob/master/Term1/P2-Traffic-Sign-Classifier/readme_sources/result.png"></br></br>
 
 From the image above, We can find that my model isn't accurate at all facing with Roundabout mandatory. The reason might be that Roundabout mandatory samples are less than 250. This reason can also explain why my model isn't 100% sure about Slippery road since there are less than 500 samples.
