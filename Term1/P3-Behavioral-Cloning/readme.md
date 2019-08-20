@@ -50,28 +50,27 @@ The model.py file contains the code for training and saving the convolution neur
 
 ### Loading Data 
 
-* I used the the dataset provided by Udacity
-* I am using OpenCV to load the images, by default the images are read by OpenCV in BGR format but we need to convert to RGB as in drive.py it is processed in RGB format.
+* Used the the dataset provided by Udacity.
 * Since we have a steering angle associated with three images we introduce a correction factor for left and right images since the steering angle is captured by the center angle.
-* I decided to introduce a correction factor of 0.2
-* For the left images I increase the steering angle by 0.2 and for the right images I decrease the steering angle by 0.2
+* Introduced a correction factor of 0.2
+* For the left images, I increase the steering angle by 0.2 and for the right images I decrease the steering angle by 0.2
 * Sample Image
 <img src="./images/center_2016_12_01_13_31_15_513.jpg">
 
 ### Preprocessing
 
-* I decided to shuffle the images so that the order in which images comes doesn't matters to the CNN
-* Augmenting the data- i decided to flip the image horizontally and adjust steering angle accordingly, I used cv2 to flip the images.
+* Shuffle the images so that the order in which images comes doesn't matters to the CNN
+* Augmenting the data - flipped the image horizontally and adjust steering angle accordingly, I used cv2 to flip the images.
 * In augmenting after flipping multiply the steering angle by a factor of -1 to get the steering angle for the flipped image.
 * So according to this approach we were able to generate 6 images corresponding to one entry in .csv file
 
 
 ### Creation of the Training Set & Validation Set
 
-* I analyzed the Udacity Dataset and found out that it contains 9 laps of track 1 with recovery data. I was satisfied with the data and decided to move on.
-* I decided to split the dataset into training and validation set using sklearn preprocessing library.
-* I decided to keep 15% of the data in Validation Set and remaining in Training Set
-* I am using generator to generate the data so as to avoid loading all the images in the memory and instead generate it at the run time in batches of 32. Even Augmented images are generated inside the generators.
+* Udacity Dataset contains 9 laps of track 1 with recovery data.
+* Split the dataset into training and validation set using sklearn preprocessing library.
+* Keep 15% of the data in Validation Set and remaining in Training Set
+* Use generator to generate the data so as to avoid loading all the images in the memory and instead generate it at the run time in batches of 32. Even Augmented images are generated inside the generators.
 
 ### Final Model Architecture
 
@@ -119,7 +118,9 @@ After the full connected layer I have used a dropout so that the model generaliz
 After a lot of testing on track 1 I was convinced that this is my final model.
 
 ### Output Video
-The file name is "video.mp4".
+The pictures are in the folder named "run1".
+The video file name is "video.mp4".
+
 
 
  
