@@ -78,7 +78,7 @@ The only files you need to modify are `FusionEKF.cpp`, `kalman_filter.cpp`, and 
 ### Accuracy
 
 #### The px, py, vx, vy output coordinates have an RMSE <= [.11, .11, 0.52, 0.52] when using the file: "obj_pose-laser-radar-synthetic-input.txt". 
-My code gave me this RMSE measurement for file `sample-laser-radar-measurement-data-1.txt`:
+My code gave me this RMSE measurement for file `obj_pose-laser-radar-synthetic-input.txt`:
 ```
 Accuracy - RMSE:
  0.0973
