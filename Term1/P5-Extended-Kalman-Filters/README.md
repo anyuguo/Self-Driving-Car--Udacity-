@@ -1,4 +1,4 @@
-**Extended Kalman Filters Project**
+# Extended Kalman Filters Project**
 
 The goals / steps of this project are the following:
   * Implement a 2-dimensional Kalman filter in C++
