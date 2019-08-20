@@ -16,42 +16,38 @@ The goals / steps of this project are the following:
     * Linux: gcc / g++ is installed by default on most Linux distros
     * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
     * Windows: recommend using [MinGW](http://www.mingw.org/)
+2. The only files you need to modify are `FusionEKF.cpp`, `kalman_filter.cpp`, and `tools.cpp`
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make` 
    * On Windows, you may need to run: `cmake .. -G "Unix Makefiles" && make`
 4. Run it: `./ExtendedKF path/to/input.txt path/to/output.txt`. You can find some sample inputs in 'data/'.
-   * eg. `./ExtendedKF ../data/sample-laser-radar-measurement-data-1.txt output.txt`
+   * eg. `./ExtendedKF ../data/obj_pose-laser-radar-synthetic-input.txt output.txt`
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/748/view) Points
 
 ### Compiling
+#### How the Files Relate to Each Other
+
+1. `Main.cpp` reads in the data and sends a sensor measurement to `FusionEKF.cpp`
+2. `FusionEKF.cpp` takes the sensor data and initializes variables and updates variables. The Kalman filter equations are not in this file. `FusionEKF.cpp` has a variable called `ekf_`, which is an instance of a `KalmanFilter` class. The `ekf_` will hold the matrix and vector values. You will also use the `ekf_` instance to call the predict and update equations. 
+3. The `KalmanFilter` class is defined in `kalman_filter.cpp` and `kalman_filter.h`. You will only need to modify 'kalman_filter.cpp', which contains functions for the prediction and update steps.
 
 #### Your code should compile.
 It does. It has been tested on Windows (MinGW) and Ubuntu on Windows (via the [WSL](https://msdn.microsoft.com/en-us/commandline/wsl/about)). Follow the instructions above and you should be good!
 
 ### Accuracy
 
-#### The px, py, vx, vy output coordinates have an RMSE <= [0.08, 0.08, 0.60, 0.60] when using the file: "sample-laser-radar-measurement-data-1.txt". 
+#### The px, py, vx, vy output coordinates have an RMSE <= [.11, .11, 0.52, 0.52] when using the file: "obj_pose-laser-radar-synthetic-input.txt". 
 My code gave me this RMSE measurement for file `sample-laser-radar-measurement-data-1.txt`:
 ```
 Accuracy - RMSE:
- 0.072925
-0.0814852
- 0.562949
- 0.554507
+ 0.0973
+ 0.0855
+ 0.4513
+ 0.4399
 ```
 The accuracy of the program is within the specified parameters.
 
-#### The px, py, vx, vy output coordinates have an RMSE <= [0.20, 0.20, .50, .85] when using the file: "sample-laser-radar-measurement-data-2.txt".
-My code gave me this RMSE measurement for file `sample-laser-radar-measurement-data-2.txt`:
-```
-Accuracy - RMSE:
-0.194499
- 0.19798
-0.498665
-0.872486
-```
-The accuracy of the program is within the specified parameters.
 
 ### Follows the Correct Algorithm
 
