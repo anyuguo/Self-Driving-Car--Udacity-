@@ -20,8 +20,7 @@ The goals / steps of this project are the following:
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make` 
    * On Windows, you may need to run: `cmake .. -G "Unix Makefiles" && make`
-4. Run it: `./ExtendedKF path/to/input.txt path/to/output.txt`. You can find some sample inputs in 'data/'.
-   * eg. `./ExtendedKF ../data/obj_pose-laser-radar-synthetic-input.txt output.txt`
+4. Run it: `./ExtendedKF`
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/748/view) Points
 
