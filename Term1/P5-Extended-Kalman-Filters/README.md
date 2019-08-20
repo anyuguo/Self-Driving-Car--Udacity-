@@ -86,7 +86,8 @@ Accuracy - RMSE:
  0.4513
  0.4399
 ```
-The accuracy of the program is within the specified parameters.
+The result in the simulator is like this
+<img src="https://github.com/anyuguo/Self-Driving-Car--Udacity-/blob/master/Term1/P5-Extended-Kalman-Filters/result_screenshot.JPG"></br></br>
 
 
 ### Follows the Correct Algorithm
