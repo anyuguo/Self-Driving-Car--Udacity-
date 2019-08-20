@@ -1,38 +1,79 @@
-# Extended Kalman Filters Project**
+# Extended Kalman Filters Project
 
-The goals / steps of this project are the following:
-  * Implement a 2-dimensional Kalman filter in C++
-  * Measure its accuracy with root-mean-square error (RMSE)
+In this project you will utilize a kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower than the tolerance outlined in the project rubric. 
 
-## How to run this project
-1. Ensure you have installed the dependencies:
-  * cmake: 3.5
-    * All OSes: [click here for installation instructions](https://cmake.org/install/)
-  * make: 4.1
-    * Linux: make is installed by default on most Linux distros
-    * Mac: [install Xcode command line tools to get make](https://developer.apple.com/xcode/features/)
-    * Windows: [Click here for installation instructions](http://gnuwin32.sourceforge.net/packages/make.htm)
-  * gcc/g++: 5.4
-    * Linux: gcc / g++ is installed by default on most Linux distros
-    * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
-    * Windows: recommend using [MinGW](http://www.mingw.org/)
-2. The only files you need to modify are `FusionEKF.cpp`, `kalman_filter.cpp`, and `tools.cpp`
+This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases).
+
+This repository includes two files that can be used to set up and install [uWebSocketIO](https://github.com/uWebSockets/uWebSockets) for either Linux or Mac systems. For windows you can use either Docker, VMware, or even [Windows 10 Bash on Ubuntu](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/) to install uWebSocketIO. Please see the uWebSocketIO Starter Guide page in the classroom within the EKF Project lesson for the required version and installation scripts.
+
+Once the install for uWebSocketIO is complete, the main program can be built and run by doing the following from the project top directory.
+
+1. mkdir build
+2. cd build
+3. cmake ..
+4. make
+5. ./ExtendedKF
+
+Here is the main protocol that main.cpp uses for uWebSocketIO in communicating with the simulator.
+
+
+**INPUT**: values provided by the simulator to the c++ program
+
+["sensor_measurement"] => the measurement that the simulator observed (either lidar or radar)
+
+
+**OUTPUT**: values provided by the c++ program to the simulator
+
+["estimate_x"] <= kalman filter estimated position x
+
+["estimate_y"] <= kalman filter estimated position y
+
+["rmse_x"]
+
+["rmse_y"]
+
+["rmse_vx"]
+
+["rmse_vy"]
+
+---
+
+### Other Important Dependencies
+
+* cmake >= 3.5
+  * All OSes: [click here for installation instructions](https://cmake.org/install/)
+* make >= 4.1 (Linux, Mac), 3.81 (Windows)
+  * Linux: make is installed by default on most Linux distros
+  * Mac: [install Xcode command line tools to get make](https://developer.apple.com/xcode/features/)
+  * Windows: [Click here for installation instructions](http://gnuwin32.sourceforge.net/packages/make.htm)
+* gcc/g++ >= 5.4
+  * Linux: gcc / g++ is installed by default on most Linux distros
+  * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
+  * Windows: recommend using [MinGW](http://www.mingw.org/)
+
+### Basic Build Instructions
+
+1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make` 
-   * On Windows, you may need to run: `cmake .. -G "Unix Makefiles" && make`
-4. Run it: `./ExtendedKF`
+   * On windows, you may need to run: `cmake .. -G "Unix Makefiles" && make`
+4. Run it: `./ExtendedKF `
 
-## [Rubric](https://review.udacity.com/#!/rubrics/748/view) Points
+### Files in the Github src Folder
+The files you need to work with are in the `src` folder of the github repository.
 
-### Compiling
-#### How the Files Relate to Each Other
+1. `main.cpp` - communicates with the Term 2 Simulator receiving data measurements, calls a function to run the Kalman filter, calls a function to calculate RMSE
+2. `FusionEKF.cpp` - initializes the filter, calls the predict function, calls the update function
+3. `kalman_filter.cpp` - defines the predict function, the update function for lidar, and the update function for radar
+4. `tools.cpp`- function to calculate RMSE and the Jacobian matrix
+
+The only files you need to modify are `FusionEKF.cpp`, `kalman_filter.cpp`, and `tools.cpp`.
+
+### How the Files Relate to Each Other
 
 1. `Main.cpp` reads in the data and sends a sensor measurement to `FusionEKF.cpp`
 2. `FusionEKF.cpp` takes the sensor data and initializes variables and updates variables. The Kalman filter equations are not in this file. `FusionEKF.cpp` has a variable called `ekf_`, which is an instance of a `KalmanFilter` class. The `ekf_` will hold the matrix and vector values. You will also use the `ekf_` instance to call the predict and update equations. 
 3. The `KalmanFilter` class is defined in `kalman_filter.cpp` and `kalman_filter.h`. You will only need to modify 'kalman_filter.cpp', which contains functions for the prediction and update steps.
-
-#### Your code should compile.
-It does. It has been tested on Windows (MinGW) and Ubuntu on Windows (via the [WSL](https://msdn.microsoft.com/en-us/commandline/wsl/about)). Follow the instructions above and you should be good!
 
 ### Accuracy
 
@@ -68,7 +109,4 @@ After the fusion EKF has been initialized we first calculate the `F`, `transpose
 #### Your Kalman Filter can handle radar and lidar measurements.
 The call to the update step of the kalman filter bifurcates depending on what type of measurement we're taking. Given that our prediction model is based off of a linear (cartesian) model, the lidar measurements use the normal kalman filter code path for the update step. On the other hand the radar measurements use an extended kalman filter update step, which calculates the Jacobian matrix for the current state of the filter at every update step. Also, given that the measurement covariance matrices (`R`) differ between lidar and radar measurements, it's set to the appropriate value before every call to update.
 
-### Code Efficiency
 
-#### Your algorithm should avoid unnecessary calculations.
-I tried to not sacrifice code readability, but for the most part the code has been streamlined to not do unnecessary calculations. Transposed matrices that are immutable are cached in the kalman filter itself the same way we hold on to other matrices. In general, the philosophy is to avoid doing unnnecessary calculations when a simple caching strategy will save a lot of time.
