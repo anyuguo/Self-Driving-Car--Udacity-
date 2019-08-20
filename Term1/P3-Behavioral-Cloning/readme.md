@@ -30,7 +30,15 @@ My project includes the following files:
 
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
-python drive.py model.h5
+python drive.py model.h5 run1
+```
+The fourth argument, run1, is the directory in which to save the images seen by the agent. If the directory already exists, it'll be overwritten.
+
+The image file name is a timestamp of when the image was seen.. This information is used by video.py to create a chronological video of the agent driving.
+
+Creates a video based on images found in the run1 directory by executing
+```sh
+python video.py run1
 ```
 
 #### 3. Submission code is usable and readable
