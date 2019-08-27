@@ -56,11 +56,11 @@ for instructions and the project rubric.
 
 #### P - proportional gain
 
-It controls the error proportionally.It makes car steer in proportion to the cross track error, which is CTE. ``Kp`` is multiplied by cross track error. Applying only P control is agressive and has oscillations.
+It controls the error proportionally. It makes car steer in proportion to the cross track error, which is CTE. ``Kp`` is multiplied by cross track error. Applying only P control is agressive and has oscillations.
 
 #### I - integral gain
 
-It is relative to the accumulating error.It can reduce the steady state error and mitigate systematic biases. ``Ki`` is multiplied by sum of all the previous cross track error (CTE).
+It is relative to the accumulating error. It can reduce the steady state error and mitigate systematic biases. ``Ki`` is multiplied by sum of all the previous cross track error (CTE).
 
 #### D - differential gain
 
