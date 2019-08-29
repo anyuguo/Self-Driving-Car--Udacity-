@@ -88,7 +88,7 @@ for speed control
 
 ## Result
 Here is a screenshot
-[screenshot](screenshot.JPG)
+![screenshot](screenshot.JPG)
 
 Here is a result video.
 [Video](result.mp4)
