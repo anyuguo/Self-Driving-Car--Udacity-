@@ -12,3 +12,4 @@
   - [x] P6: [Kidnapped Vehicle](Term2/P6-Kidnapped-Vehicle)
   - [x] P7: [Highway Driving](Term2/P7-Highway-Driving)
   - [x] P8: [PID Controller](Term2/P8-PID-Controller)
+  - [x] P9: [Program an Autonomous Vehicle](Term2/P9-Capstone-Project)
