@@ -9,4 +9,6 @@
   - [x] P5: [Extended Kalman Filters](Term1/P5-Extended-Kalman-Filters)
 
 - Term 2
-  - [ ] P6: [Kidnapped Vehicle](Term1/P6-Kidnapped-Vehicle)
+  - [x] P6: [Kidnapped Vehicle](Term2/P6-Kidnapped-Vehicle)
+  - [x] P6: [Highway Driving](Term2/P7-Highway-Driving)
+  - [x] P6: [PID Controller](Term2/P8-PID-Controller)
