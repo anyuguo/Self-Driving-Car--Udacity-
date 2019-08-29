@@ -76,4 +76,12 @@ I tune the parameter manually.
 3. increase Kd to reduce the oscillation.
 4. increase Ki to reduce the steady state error.
 
+### Parameters while only caring about steering control
 My final hyperparameters for steering control are ``Kp = 0.1``, ``Ki = 0.005``, ``Kd = 4.0``.
+
+### Parameters while caring about steering control and speed control
+for steering control 
+``Kp = 0.13``, ``Ki = 0.0001``, ``Kd = 1.0``.
+
+for speed control 
+``Kp = 0.1``, ``Ki = 0.002``, ``Kd = 0.0``.
