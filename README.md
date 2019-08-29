@@ -10,5 +10,5 @@
 
 - Term 2
   - [x] P6: [Kidnapped Vehicle](Term2/P6-Kidnapped-Vehicle)
-  - [x] P6: [Highway Driving](Term2/P7-Highway-Driving)
-  - [x] P6: [PID Controller](Term2/P8-PID-Controller)
+  - [x] P7: [Highway Driving](Term2/P7-Highway-Driving)
+  - [x] P8: [PID Controller](Term2/P8-PID-Controller)
