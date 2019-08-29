@@ -92,7 +92,7 @@ Generate five anchor points: A, B, C, D, E. Point A is either the car starting p
 
 ### Result
 Here is a screen shot
-![Simulator](images/driving.jpg)
+![Simulator](images/driving.JPG)
 
 Here is a result video.
 [Video[See video on YouTube]](https://youtu.be/bJC2_qYV55g)
