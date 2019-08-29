@@ -24,6 +24,9 @@ This project involves the Term 2 Simulator. After getting uWebSocketIO, one can 
 The particle filter completes execution within the time of 100 seconds. And the output of simulator shows a success.
 <img src="https://github.com/jane212/CarND-Kidnapped-Vehicle/blob/master/output.png" width="500">
 
+Here is the result video.
+[Video](result.mp4)
+
 ## Algorithm
 This program is built on the starter code provided by Udacity CarND team.
 
