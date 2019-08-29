@@ -65,81 +65,35 @@ the path has processed since last time.
 
 2. There will be some latency between the simulator running and the path planner returning a path, with optimized code usually its not very long maybe just 1-3 time steps. During this delay the simulator will continue using points that it was last given, because of this its a good idea to store the last points you have used so you can have a smooth transition. previous_path_x, and previous_path_y can be helpful for this transition since they show the last points given to the simulator controller with the processed points already removed. You would either return a path that extends this previous path or make sure to create a new path that has a smooth transition with this last path.
 
-## Tips
+## Reflection
 
-A really helpful resource for doing this project and creating smooth trajectories was using http://kluge.in-chemnitz.de/opensource/spline/, the spline function is in a single hearder file is really easy to use.
+### Code Model
 
----
+#### Collision Avoidance
 
-## Dependencies
+The simulator provides information about cars driving in the same side of ego car, which is called sensor fusion.
 
-* cmake >= 3.5
-  * All OSes: [click here for installation instructions](https://cmake.org/install/)
-* make >= 4.1
-  * Linux: make is installed by default on most Linux distros
-  * Mac: [install Xcode command line tools to get make](https://developer.apple.com/xcode/features/)
-  * Windows: [Click here for installation instructions](http://gnuwin32.sourceforge.net/packages/make.htm)
-* gcc/g++ >= 5.4
-  * Linux: gcc / g++ is installed by default on most Linux distros
-  * Mac: same deal as make - [install Xcode command line tools]((https://developer.apple.com/xcode/features/)
-  * Windows: recommend using [MinGW](http://www.mingw.org/)
-* [uWebSockets](https://github.com/uWebSockets/uWebSockets)
-  * Run either `install-mac.sh` or `install-ubuntu.sh`.
-  * If you install from source, checkout to commit `e94b6e1`, i.e.
-    ```
-    git clone https://github.com/uWebSockets/uWebSockets 
-    cd uWebSockets
-    git checkout e94b6e1
-    ```
+Check if there is a car in front of the ego car (in the same lane). If so, is it within 30m? If so, decrease ego car's speed.
+If there is no car, maintain the speed as 49.5 mph. Since the speed limit is 50mph, I don't want to "break law".
 
-## Editor Settings
+#### Lane Change
 
-We've purposefully kept editor configuration files out of this repo in order to
-keep it as simple and environment agnostic as possible. However, we recommend
-using the following settings:
+When a car is in front of the ego car, this is the time to think about a safe lane changeing.
 
-* indent using spaces
-* set tab width to 2 spaces (keeps the matrices in source code aligned)
+1. Check the traffic in the lane left of current lane if it exists. Find the closest front and back gaps in this lane. Only if there's enough space in the front (30m buffer) and back (10m buffer), ego car changes to the left lane.
 
-## Code Style
+2. If the left lane is not available. Perform the same process to check the right lane.
 
-Please (do your best to) stick to [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html).
+3. If either left lane or right lane is availale, stay in the same lane and avoid collision.
 
-## Project Instructions and Rubric
+#### Trajectory Construction
 
-Note: regardless of the changes you make, your project must be buildable using
-cmake and make!
+Generate five anchor points: A, B, C, D, E. Point A is either the car starting point or the end point of previous path. Point B is the previous point of Point A. Point C, D, E are points which are evenly spaced (30m) points ahead of Point A. These anchor points can generate a spline. A smooth path can be interpolated using spline interpolation.
 
+### Result
+Here is a screen shot
+![Simulator](images/driving.jpg)
 
-## Call for IDE Profiles Pull Requests
-
-Help your fellow students!
-
-We decided to create Makefiles with cmake to keep this project as platform
-agnostic as possible. Similarly, we omitted IDE profiles in order to ensure
-that students don't feel pressured to use one IDE or another.
-
-However! I'd love to help people get up and running with their IDEs of choice.
-If you've created a profile for an IDE that you think other students would
-appreciate, we'd love to have you add the requisite profile files and
-instructions to ide_profiles/. For example if you wanted to add a VS Code
-profile, you'd add:
-
-* /ide_profiles/vscode/.vscode
-* /ide_profiles/vscode/README.md
-
-The README should explain what the profile does, how to take advantage of it,
-and how to install it.
-
-Frankly, I've never been involved in a project with multiple IDE profiles
-before. I believe the best way to handle this would be to keep them out of the
-repo root to avoid clutter. My expectation is that most profiles will include
-instructions to copy files to a new location to get picked up by the IDE, but
-that's just a guess.
-
-One last note here: regardless of the IDE used, every submitted project must
-still be compilable with cmake and make./
-
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
+Here is a result video.
+[Video[See video on YouTube]](https://youtu.be/bJC2_qYV55g)
 
