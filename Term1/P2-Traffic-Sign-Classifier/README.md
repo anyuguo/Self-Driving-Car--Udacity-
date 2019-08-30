@@ -6,6 +6,7 @@ The working code in Python along with partial outputs is presented in [Jupyter N
 The goals / steps of this project are the following:
 
 - Load the data set (see below for links to the project data set)
+  [link](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip)
 - Explore, summarize and visualize the data set
 - Design, train and test a model architecture
 - Use the model to make predictions on new images
