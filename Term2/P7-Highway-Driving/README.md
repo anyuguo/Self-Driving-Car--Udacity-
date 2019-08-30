@@ -65,6 +65,11 @@ the path has processed since last time.
 
 2. There will be some latency between the simulator running and the path planner returning a path, with optimized code usually its not very long maybe just 1-3 time steps. During this delay the simulator will continue using points that it was last given, because of this its a good idea to store the last points you have used so you can have a smooth transition. previous_path_x, and previous_path_y can be helpful for this transition since they show the last points given to the simulator controller with the processed points already removed. You would either return a path that extends this previous path or make sure to create a new path that has a smooth transition with this last path.
 
+## Files Demonstration
+
+* [CMakeLists.txt](CMakeLists.txt) is the cmake file.
+* [src](src) folder contains the source code. main.cpp is the key file.
+
 ## Reflection
 
 ### Code Model
