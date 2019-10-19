@@ -4,7 +4,7 @@
 - Term 1
   - [x] P1: [Finding Lane Lines](Term1/P1-Lane-Lines)   
   - [x] P2: [Traffic Sign Classifier (Machine Learning)](Term1/P2-Traffic-Sign-Classifier)
-  - [x] P3: [Behavioral Cloning](Term1/P3-Behavioral-Cloning)
+  - [x] P3: [Behavioral Cloning (Machine Learning)](Term1/P3-Behavioral-Cloning)
   - [x] P4: [Advanced Lane Finding (Image Processing)](Term1/P4-Advanced-Lane-Finding)
   - [x] P5: [Extended Kalman Filters](Term1/P5-Extended-Kalman-Filters)
 
